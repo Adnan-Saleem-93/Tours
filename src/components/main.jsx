@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {courseAPI} from "../config/constants";
 import Header from "./header";
 import ToursList from "./toursList";
+import {Container} from "react-bootstrap";
+import "../index.css";
 
 const MainComponent = () => {
   const [tours, setTours] = useState([]);
@@ -17,10 +19,10 @@ const MainComponent = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       <Header isData={tours ? true : false} />
       <ToursList toursList={tours} />
-    </>
+    </Container>
   );
 };
 
