@@ -3,22 +3,31 @@ import {courseAPI} from "../config/constants";
 import Header from "./header";
 import ToursList from "./toursList";
 import {Container} from "react-bootstrap";
-import "../index.css";
 
 const MainComponent = () => {
   const [tours, setTours] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const onFetch = async () => {
-    let response = await fetch(courseAPI);
-    let data = await response.json();
-    setTours(data);
+  const onFetch = () => {
+    try {
+      setTimeout(async () => {
+        let response = await fetch(courseAPI);
+        let data = await response.json();
+        setTours(data);
+        setIsLoading(false);
+      }, 500);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     onFetch();
   }, []);
 
-  return (
+  return isLoading ? (
+    <h2>Loading...</h2>
+  ) : (
     <Container>
       <Header isData={tours ? true : false} />
       <ToursList toursList={tours} />
