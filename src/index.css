@@ -18,3 +18,9 @@ h5,
 h6 {
   font-size: xxx-large !important;
 }
+
+.card {
+  width: 75% !important;
+  margin-bottom: 2.5rem !important;
+  margin: auto;
+}
