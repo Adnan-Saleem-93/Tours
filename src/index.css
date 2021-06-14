@@ -19,8 +19,30 @@ h6 {
   font-size: xxx-large !important;
 }
 
+.header {
+  margin-bottom: 2rem !important;
+}
+
 .card {
-  width: 75% !important;
+  width: 60% !important;
   margin-bottom: 2.5rem !important;
   margin: auto;
+  border-radius: 0.5rem !important;
+}
+
+.card-body > div,
+p {
+  text-align: left !important;
+  padding: 0 2rem;
+}
+
+.card-title {
+  display: inline-block !important;
+}
+
+.price {
+  color: dodgerblue;
+  font-weight: 700;
+  display: inline;
+  float: right;
 }

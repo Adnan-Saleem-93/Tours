@@ -3,18 +3,23 @@ import {Card, Button, Image} from "react-bootstrap";
 
 const Tour = (tour) => {
   let {name, info, image, price} = tour;
-
+  let imageStyle = {
+    borderTopRightRadius: "0.5rem",
+    borderTopLeftRadius: "0.5rem",
+    objectFit: "cover",
+    maxHeight: "25rem"
+  };
   return (
     <>
       <Card style={{width: "18rem"}}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={image} style={imageStyle} />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of the card's
-            content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <div>
+            <Card.Title>{name}</Card.Title>
+            <p className="price">${price}</p>
+          </div>
+          <Card.Text>{info}</Card.Text>
+          <Button variant="outline-danger">Not Interested</Button>
         </Card.Body>
       </Card>
     </>
