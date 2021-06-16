@@ -20,6 +20,11 @@ const MainComponent = () => {
       console.error(error);
     }
   };
+  const removeTour = (id) => {
+    let newTourList = [...tours];
+    newTourList = newTourList.filter((tour) => tour.id !== id);
+    setTours(newTourList);
+  };
 
   useEffect(() => {
     onFetch();
@@ -29,8 +34,8 @@ const MainComponent = () => {
     <h2>Loading...</h2>
   ) : (
     <Container>
-      <Header isData={tours ? true : false} />
-      <ToursList toursList={tours} />
+      <Header isData={tours.length ? true : false} />
+      <ToursList toursList={tours} removeTour={removeTour} />
     </Container>
   );
 };

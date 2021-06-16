@@ -28,27 +28,31 @@ h6 {
   margin-bottom: 2.5rem !important;
   margin: auto;
   border-radius: 0.5rem !important;
+  box-shadow: rgba(102, 101, 101, 0.35) 0px 5px 15px;
 }
 
 .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.438) 0px 5px 15px;
 }
 
-.card-body > div,
+.card-body > div > p,
 p {
   text-align: justify !important;
   padding: 0 2rem;
 }
 
 .card-title {
-  display: inline-block !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .price {
   color: dodgerblue;
   font-weight: 700;
   display: inline;
-  float: right;
+  /* float: right !important; */
 }
 
 .showMoreLessBtn {
@@ -61,4 +65,9 @@ p {
 
 #showMoreLess-Btn {
   display: block;
+}
+
+.btn.btn-primary {
+  font-size: x-large;
+  margin-top: 2rem;
 }

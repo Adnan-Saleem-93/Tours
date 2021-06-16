@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Card, Button} from "react-bootstrap";
 
-const Tour = (tour) => {
+const Tour = ({tour, removeTour}) => {
   //#region variables
   let {id, name, info, image, price} = tour;
   let truncatedText = info.substring(0, 300);
@@ -11,7 +11,7 @@ const Tour = (tour) => {
     objectFit: "cover",
     maxHeight: "25rem"
   };
-  let cardText_HtmlID = `tour-description${id}`;
+  let cardText_HtmlID = `tour-description_${id}`;
   //#endregion
 
   //#region useState
@@ -42,17 +42,23 @@ const Tour = (tour) => {
       setIsDescriptionTruncated(true);
     }
   };
+
+  const removeTourHandler = () => {
+    removeTour(id);
+  };
   //#endregion
 
   //#region component render method
   return (
     <>
-      <Card style={{width: "18rem"}}>
+      <Card style={{minWidth: "30rem"}}>
         <Card.Img variant="top" src={image} style={imageStyle} />
         <Card.Body>
           <div>
-            <Card.Title>{name}</Card.Title>
-            <p className="price">${price}</p>
+            <Card.Title>
+              <p>{name}</p>
+              <p className="price">${price}</p>
+            </Card.Title>
           </div>
           <Card.Text id={cardText_HtmlID}>
             {textDescription}
@@ -64,7 +70,9 @@ const Tour = (tour) => {
               </b>
             </span>
           </Card.Text>
-          <Button variant="outline-danger">Not Interested</Button>
+          <Button variant="outline-danger" onClick={removeTourHandler}>
+            Not Interested
+          </Button>
         </Card.Body>
       </Card>
     </>
