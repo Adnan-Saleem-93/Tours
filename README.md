@@ -1,3 +1,5 @@
+# This is a demo React Project to practice the use of the useEffect Hook
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
