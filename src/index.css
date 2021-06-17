@@ -48,11 +48,14 @@ p {
   margin-bottom: 1.5rem !important;
 }
 
+.card-text {
+  color: rgb(37 35 35 / 83%);
+}
+
 .price {
   color: dodgerblue;
   font-weight: 700;
   display: inline;
-  /* float: right !important; */
 }
 
 .showMoreLessBtn {
@@ -71,3 +74,11 @@ p {
   font-size: x-large;
   margin-top: 2rem;
 }
+
+/* .btn-outline-danger {
+  margin-left: 2.5rem;
+  transition: width 55s ease-in-out;
+}
+.btn-outline-danger:hover {
+  width: 15%;
+} */

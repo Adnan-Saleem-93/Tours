@@ -5,10 +5,17 @@ import ToursList from "./toursList";
 import {Container} from "react-bootstrap";
 
 const MainComponent = () => {
+  //#region hooks
   const [tours, setTours] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    onFetch();
+  }, []);
+  //#endregion
 
+  //#region methods
   const onFetch = () => {
+    setIsLoading(true);
     try {
       setTimeout(async () => {
         let response = await fetch(courseAPI);
@@ -26,18 +33,21 @@ const MainComponent = () => {
     setTours(newTourList);
   };
 
-  useEffect(() => {
+  const refetchData = (params) => {
     onFetch();
-  }, []);
+  };
+  //#endregion
 
+  //#region component render
   return isLoading ? (
     <h2>Loading...</h2>
   ) : (
     <Container>
-      <Header isData={tours.length ? true : false} />
+      <Header isData={tours.length ? true : false} refetchData={refetchData} />
       <ToursList toursList={tours} removeTour={removeTour} />
     </Container>
   );
+  //#endregion
 };
 
 export default MainComponent;
